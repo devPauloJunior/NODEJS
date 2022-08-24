@@ -1,0 +1,7 @@
+{
+	"name": "aulapj",
+	"description": "App para testar o Node.js",
+	"author": "Paulo Junior <pj@email.com>",
+	"version": "1.0.1",
+	"private": true
+}
