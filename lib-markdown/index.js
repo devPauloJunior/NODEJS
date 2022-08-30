@@ -5,14 +5,20 @@ function TratarErro(erro) {
     throw new Error(chalk.red(erro.code, 'verifique o camminho do arquivo especifiado!'));
 }
 
-function PegaArquivo(caminhoDoArquivo) {
-    const econding = 'utf-8';
-    fs.readFile(caminhoDoArquivo, econding, (erro, texto) => {
-        if (erro) {
-            TratarErro(erro);
-        }
-        console.log(chalk.green(texto));
-    })
+function pegaArquivo(caminhoDoArquivo) {
+    const encoding = 'utf-8';
+    fs.promises.readFile(caminhoDoArquivo, encoding)
+    .then((texto) => console.log(chalk.green(texto)))
+    .catch((erro) => TratarErro(erro))
 }
+    // function pegaArquivo(caminhoDoArquivo) {
+//     const enconding = 'utf-8';
+//     fs.readFile(caminhoDoArquivo, enconding, (erro, texto) => {
+//         if (erro) {
+//             TratarErro(erro);
+//         }
+//         console.log(chalk.green(texto));
+//     })
+// }
 
-PegaArquivo('./arquivos/texto12.md');
+pegaArquivo('./arquivos/texto1.md');
